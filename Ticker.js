@@ -1,7 +1,8 @@
 /**
- * Classe qui permet d'encader
+ * Classe qui permet de gérer une boucle requestAnimationFrame
  */
 export default class Ticker{
+
     /**
      *
      * @param {Number} targetFps Le framerate maximum
@@ -36,22 +37,49 @@ export default class Ticker{
          * @type {Function}
          */
         this.render=render;
+
+        this._playing=true;
         // go !
         this.tick();
 
+
+
     }
 
+    /**
+     * La fonction récursive
+     * @private
+     */
     tick(){
         const now=performance.now();
         this.fpsRender = 1 / ((now - this._lastRender) / 1000);
         this.fpsTick = 1 / ((now - this._lastTick) / 1000);
         this._lastTick=now;
         if(this.fpsRender<this.targetFps){
-            //console.log(`::render ${this.fpsRender}`)
             this._lastRender=now;
             this.render();
         }
-        //console.log(`::tick ${this.fpsTick}`)
-        requestAnimationFrame(this.tick.bind(this));
+        if(this._playing){
+            requestAnimationFrame(this.tick.bind(this));
+        }
+
+    }
+    get playing() {
+        return this._playing;
+    }
+
+    set playing(value) {
+        if(value !==this._playing){
+            this._playing = value;
+            if(value){
+                this.tick(this);
+            }
+        }
+    }
+    stop() {
+        this.playing=false;
+    }
+    play(){
+        this.playing=true;
     }
 }
