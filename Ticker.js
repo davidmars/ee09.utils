@@ -37,7 +37,11 @@ export default class Ticker{
          * @type {Function}
          */
         this.render=render;
-
+        /**
+         * En train de jouer ou non ?
+         * @type {boolean}
+         * @private
+         */
         this._playing=true;
         // go !
         this.tick();
@@ -62,7 +66,6 @@ export default class Ticker{
         if(this._playing){
             requestAnimationFrame(this.tick.bind(this));
         }
-
     }
     get playing() {
         return this._playing;
