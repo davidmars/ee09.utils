@@ -87,7 +87,19 @@ export default class MorphText{
                 if(i<maxLetter){
                     letters[i].done=true;
                 }
-                currentStringArray[letters[i].position]=letters[i].val;
+
+                if(opt.algorithm==="ltr type"){
+                    if(i<=Math.round(maxLetter)){
+                        currentStringArray[letters[i].position]=letters[i].val;
+                    }else{
+                        currentStringArray[letters[i].position]=" ";
+                    }
+                }else{
+                    currentStringArray[letters[i].position]=letters[i].val;
+                }
+
+
+
             }
             //callback
             onChange(currentStringArray.join(''));
@@ -96,7 +108,6 @@ export default class MorphText{
         this.tick=new Ticker(opt.fps,loop.bind(this));
         this._timeout=setTimeout(()=>{
             this.tick.stop();
-            //clearInterval(interval);
             onChange(targetString);
             onComplete();
         },opt.durationMs)
@@ -106,7 +117,9 @@ export default class MorphText{
      * Arrête l'animation et tue le callback de fin
      */
     stop(){
-        this.tick.stop();
+        if(this.tick){
+            this.tick.stop();
+        }
         if(this._timeout){
             clearTimeout(this._timeout);
         }
@@ -121,7 +134,7 @@ class MorphTextOption{
     constructor() {
         /**
          *
-         * @type {"shuffle"|"ltr"}
+         * @type {"shuffle"|"ltr"|"ltr type"}
          */
         this.algorithm="shuffle";
         /**
