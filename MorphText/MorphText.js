@@ -13,6 +13,15 @@ import Ticker from "../Ticker.js";
  */
 export default class MorphText{
 
+    constructor() {
+        /**
+         *
+         * @private
+         * @type {null|Ticker}
+         */
+        this.tick=null;
+    }
+
     /**
      *
      * @param {String} startString Starting text
@@ -84,13 +93,23 @@ export default class MorphText{
             onChange(currentStringArray.join(''));
         }
 
-        let ticker=new Ticker(opt.fps,loop.bind(this));
-        setTimeout(function(){
-            ticker.stop();
+        this.tick=new Ticker(opt.fps,loop.bind(this));
+        this._timeout=setTimeout(()=>{
+            this.tick.stop();
             //clearInterval(interval);
             onChange(targetString);
             onComplete();
         },opt.durationMs)
+    }
+
+    /**
+     * Arrête l'animation et tue le callback de fin
+     */
+    stop(){
+        this.tick.stop();
+        if(this._timeout){
+            clearTimeout(this._timeout);
+        }
     }
 }
 
