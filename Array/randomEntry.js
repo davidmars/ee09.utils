@@ -1,4 +1,4 @@
-import arrayShuffle from "./arrayShuffle";
+import arrayShuffle from "./arrayShuffle.js";
 
 /**
  * Renvoie une entrée aléatoire du tableau
