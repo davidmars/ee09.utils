@@ -1,7 +1,7 @@
-/**
- * Permet de sauvegarder dans le localstorage des variables plus strictes qu'en natif
- */
 export default class LocalStorage{
+    /**
+     * Permet de sauvegarder dans le localstorage des variables plus strictes qu'en natif
+     */
     constructor(prefix) {
         this.prefix=prefix;
     }
