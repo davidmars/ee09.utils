@@ -3,5 +3,9 @@
     "eqeqeq": "off",
     "curly": "error",
     "quotes": ["warn", "double"]
+  },
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module"
   }
 }
