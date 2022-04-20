@@ -1,4 +1,4 @@
-import extension from "./File/extension"
+import extension from "./File/extension.js"
 export default {
     extension
 }
