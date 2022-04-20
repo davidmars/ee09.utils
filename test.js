@@ -30,8 +30,11 @@ console.log(
     "$utils.math.ratio(50,0,100,-2000,-1000)",
     $utils.math.ratio(50,0,100,-2000,-1000)
 ); // 1500
-
 console.log(
     "$utils.file.extension('toto.jpeg',true)",
     $utils.file.extension('toto.jpeg',true)
+);
+console.log(
+    "$utils.file.humanSize(1024*1024*1024*1.5)",
+    $utils.file.humanSize(1024*1024*1024*1.5)
 );
