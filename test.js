@@ -1,4 +1,5 @@
 import EE09Utils from "./EE09Utils.js";
+import {mimeToMdiIcon} from "./File/mimeToMdiIcon.js";
 
 let $utils=new EE09Utils("test me");
 
@@ -30,6 +31,9 @@ console.log(
     "$utils.math.ratio(50,0,100,-2000,-1000)",
     $utils.math.ratio(50,0,100,-2000,-1000)
 ); // 1500
+
+console.log("----------files-------");
+
 console.log(
     "$utils.file.extension('toto.jpeg',true)",
     $utils.file.extension('toto.jpeg',true)
@@ -37,4 +41,13 @@ console.log(
 console.log(
     "$utils.file.humanSize(1024*1024*1024*1.5)",
     $utils.file.humanSize(1024*1024*1024*1.5)
+);
+
+console.log(
+    "mimeToMdiIcon('toto.pdf')",
+    mimeToMdiIcon('toto.pdf')
+);
+console.log(
+    "mimeToMdiIcon(null,'video/mp4')",
+    mimeToMdiIcon(null,'video/mp4')
 );
