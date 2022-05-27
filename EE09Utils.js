@@ -3,6 +3,7 @@ import Browser from "./Browser.js";
 import LocalStorage from "./LocalStorage.js";
 import Geo from "./Geo.js";
 import File from "./File.js";
+import String from "./String.js";
 export default class EE09Utils{
     constructor(projectName="ee09-utils-project-default") {
         this.projectName=projectName;
@@ -11,5 +12,6 @@ export default class EE09Utils{
         this.ls=new LocalStorage(this.projectName);
         this.geo=Geo;
         this.file=File;
+        this.string=String;
     }
 }

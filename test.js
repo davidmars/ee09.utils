@@ -1,5 +1,5 @@
 import EE09Utils from "./EE09Utils.js";
-import {mimeToMdiIcon} from "./File/mimeToMdiIcon.js";
+import mimeToMdiIcon from "./File/mimeToMdiIcon.js";
 
 let $utils=new EE09Utils("test me");
 
@@ -15,6 +15,7 @@ console.log(
     $utils.browser.isMobileOrTablet()
 );
 //math
+console.log("----------math-------");
 console.log(
     "$utils.math.lerp(0,100,0.5)",
     $utils.math.lerp(0,100,0.5)
@@ -30,6 +31,17 @@ console.log(
 console.log(
     "$utils.math.ratio(50,0,100,-2000,-1000)",
     $utils.math.ratio(50,0,100,-2000,-1000)
+); // 1500
+
+//string
+console.log("----------string-------");
+console.log(
+    "$utils.string.noSpecialChar(\"Crême brûlée\")",
+    $utils.string.noSpecialChar("Crême brûlée")
+);
+console.log(
+    "$utils.string.noSpecialChar(\"ça va bien ?\")",
+    $utils.string.noSpecialChar("ça va bien ?")
 ); // 1500
 
 console.log("----------files-------");
