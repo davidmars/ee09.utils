@@ -17,10 +17,8 @@ export default class LocalStorage{
         if(v===null){
             return defaultVal;
         }
-        if(v==="1"){
-            return true;
-        }
-        return false;
+        return v === "1";
+
     }
     setBool(prop,val){
         localStorage.setItem(`${this.prefix}_${prop}`,val===true?'1':'0');
@@ -50,5 +48,13 @@ export default class LocalStorage{
     setString(prop,val){
         localStorage.setItem(`${this.prefix}_${prop}`,String(val));
         return val;
+    }
+
+    /**
+     * Efface la variable
+     * @param {string} prop
+     */
+    removeItem(prop){
+       localStorage.removeItem(`${this.prefix}_${prop}`);
     }
 }

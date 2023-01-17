@@ -5,7 +5,7 @@ let $utils=new EE09Utils("test me");
 
 console.log($utils.projectName);
 //browser
-
+console.log("----------browser-------");
 console.log(
     "$utils.browser.isIos()",
     $utils.browser.isIos()
@@ -13,6 +13,10 @@ console.log(
 console.log(
     "$utils.browser.isMobileOrTablet()",
     $utils.browser.isMobileOrTablet()
+);
+console.log(
+    "$utils.browser.getRequest('hello')",
+    $utils.browser.getRequest("hello","essayez de mettre ?hello=world dans l'url")
 );
 //math
 console.log("----------math-------");
